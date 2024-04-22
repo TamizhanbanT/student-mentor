@@ -102,7 +102,7 @@ app.get('/student/', async  (req, res)=> {
     }
   });
   
-  // Add this endpoint after your existing endpoints
+
 
 // Endpoint to assign a student to a mentor
 app.post('/assign-mentor/:mentor_id/:student_id', async (req, res) => {
