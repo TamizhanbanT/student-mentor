@@ -40,13 +40,13 @@ app.get('/mentor/', async  (req, res)=> {
         try {
             const { mentor_id } = req.body;
       
-            // Check if there's any document with the same date
+            // Check if there's any document with the same mentor_id
             const existingmentor_id = await client.db("stud-mentor").collection("mentor").findOne({ mentor_id });
             if (existingmentor_id) {
-                // If data already exists with the same date, send a response indicating the conflict
+                // If data already exists with the same mentor_id, send a response indicating the conflict
                 return res.status(400).send('Data with the same mentor_id already exists');
             }
-         // If data doesn't exist with the same date and student_id, insert it into the collection
+         // If data doesn't exist with the same mentor_id, insert it into the collection
             await client.db("stud-mentor").collection("mentor").insertOne(req.body);
             res.status(201).send('Data inserted successfully');
         } catch (error) {
